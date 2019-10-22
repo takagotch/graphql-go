@@ -24,7 +24,27 @@ func TestSchema_ToJSON(t *testing.T) {
 ```
 
 ```go
-//
+// parser/parser_test.go
+
+func TestMalformedQuery(t *testing.T) {
+  op, err := parser.ParseOpenration(nil)
+  if !parser.IsMalformedOperation(err) {
+    t.Error("Expected malformed operation")
+  }
+  
+}
+
+func TestMultipleOperations(t *testing.T) {
+  multi := `
+  `
+  op, err := parser.ParseOperation([]byte(mulit))
+  if err != parser.ErrMultipleOperations {
+    t.Error("Expected multiple operatoins error")
+  }
+  if op != nil {
+    t.Error("Expected nil result")
+  }
+}
 
 
 ```
