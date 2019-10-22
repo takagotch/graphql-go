@@ -49,8 +49,22 @@ func TestMultipleOperations(t *testing.T) {
 
 ```
 
-```
-//
+```go
+// definition_test.go
+
+var blogImage = graphql.NewObject(graphql.ObjectConfig{
+  Name: "Image",
+  Fields: graph.Fields{
+    "url": &graphql.Field{
+      Type: graphql.String,
+    },
+    "width": &graphql.Field{
+      Type: graphql.Int,
+    },
+    
+    
+  }
+})
 
 ```
 
